@@ -29,7 +29,7 @@ const Pin = ({
   const navigate = useNavigate();
   const user = fetchUser();
   const alreadySaved = !!save?.filter(
-    (item) => item.postedBy._id === user?.googleId
+    (item) => item?.postedBy?._id === user?.googleId
   )?.length;
 
   const isSamePerson = user.googleId === postedBy?._id;

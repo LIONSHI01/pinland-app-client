@@ -56,11 +56,11 @@ const Auth = () => {
       });
     };
     gapi.load('client:auth2', initClient);
-  }, []);
+  }, [clientId]);
 
   const responseGoogle = (response) => {
-    localStorage.setItem('pinland-user', JSON.stringify(response.profileObj));
-    const { name, googleId, imageUrl } = response.profileObj;
+    localStorage.setItem('pinland-user', JSON.stringify(response?.profileObj));
+    const { name, googleId, imageUrl } = response?.profileObj;
 
     const doc = {
       _id: googleId,

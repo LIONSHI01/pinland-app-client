@@ -5,12 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import Auth from './containers/Auth';
 import Home from './containers/Home/Home';
 import { fetchUser } from './utils/fetchUser';
+
 const App = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const user = fetchUser();
     if (!user) navigate('/auth');
-  }, []);
+  }, [navigate]);
 
   return (
     <Routes>
