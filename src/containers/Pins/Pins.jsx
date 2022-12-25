@@ -11,7 +11,6 @@ const Pins = ({ loginedUser }) => {
   const setNavSticky = () => {
     if (window.scrollY >= 1) {
       setSticky(true);
-      // console.log(window.scrollY);
     } else {
       setSticky(false);
     }
@@ -20,8 +19,6 @@ const Pins = ({ loginedUser }) => {
   useEffect(() => {
     window.addEventListener('scroll', setNavSticky, true);
   }, []);
-
-  // console.log('Render Pins');
 
   return (
     <PinsContainer sticky={sticky}>

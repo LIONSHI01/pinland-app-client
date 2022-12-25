@@ -16,28 +16,39 @@ html {
   @media only screen and (max-width: 160em) {
     font-size: 80%;
   }
-
-  @media only screen and (max-width: 90em) {
+}
+@media only screen and (max-width: 90em) {
+  html {
     font-size: 50%;
   }
+}
 
-  @media only screen and (max-width: 64em) {
+@media only screen and (max-width: 64em) {
+  html {
     font-size: 62.5%;
   }
+}
 
-  @media only screen and (max-width: 48em) {
+@media only screen and (max-width: 48em) {
+  html {
     font-size: 50%;
   }
+}
 
-  @media only screen and (max-width: 26.56em) {
+@media only screen and (max-width: 26.56em) {
+  html {
     font-size: 45%;
   }
+}
 
-  @media only screen and (max-width: 23.44em) {
+@media only screen and (max-width: 23.44em) {
+  html {
     font-size: 35%;
   }
+}
 
-  @media only screen and (max-width: 20em) {
+@media only screen and (max-width: 20em) {
+  html {
     font-size: 32.5%;
   }
 }

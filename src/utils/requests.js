@@ -119,7 +119,6 @@ export const unfollowRequest = (user, loginedUser, clientCB) => {
 };
 
 export const unfollowingRequest = (user, loginedUser, clientCB) => {
-  // console.log(loginedUser);
   const followingUser = loginedUser?.followings?.filter(
     (item) => item?.userId === user?._id
   );
@@ -181,7 +180,6 @@ export const toggleLikeCommentRequest = (comment, loginedUser, clientCB) => {
     const likeToRemoveItem = comment?.likes?.filter(
       (item) => item.userId === loginedUser?._id
     );
-    console.log('likeToRemoveItem', likeToRemoveItem);
 
     const likeToRemove = [
       'likes[0]',

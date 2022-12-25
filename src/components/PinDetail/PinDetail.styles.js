@@ -58,6 +58,13 @@ export const PinDetailContainer = styled.div`
     padding: 3rem;
     margin: 0 14px var(--mg-xl);
   }
+
+  @media ${device.mobileL} {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    margin: 14px;
+  }
 `;
 
 export const ImageContainer = styled.section`

@@ -8,10 +8,17 @@ import {
   IoMdCloseCircle,
 } from 'react-icons/io';
 
+import { FiMenu } from '../ReactIcons';
+
 import logo from '../../assets/logo.png';
-import { MobileSidebar, IconButton } from '../index';
+import { MobileSidebar, UserIcon } from '../index';
 import { categories } from '../../utils/dataQuery';
-import { NavbarContainer, DropdownMenu, LogoContainer } from './Navbar.styles';
+import {
+  NavbarContainer,
+  DropdownMenu,
+  LogoContainer,
+  SearchBoxContainer,
+} from './Navbar.styles';
 
 const Navbar = ({ searchTerm, setSearchTerm, loginedUser, sticky }) => {
   const navigate = useNavigate();
@@ -60,8 +67,15 @@ const Navbar = ({ searchTerm, setSearchTerm, loginedUser, sticky }) => {
     };
   });
 
+  const openSidebarHandler = () => {
+    setShowSidebar(true);
+  };
+
   return (
     <NavbarContainer sticky={sticky}>
+      <div className="sidebar-btn" onClick={openSidebarHandler}>
+        <FiMenu size={25} />
+      </div>
       {!isDesktop && (
         <MobileSidebar
           categories={categories}
@@ -77,15 +91,12 @@ const Navbar = ({ searchTerm, setSearchTerm, loginedUser, sticky }) => {
       <DropdownMenu ref={ref}>
         <div
           className="category-heading"
-          onClick={() => {
-            setIsDropdown((prev) => !prev);
-            setShowSidebar(true);
-          }}
+          onClick={() => setIsDropdown((prev) => !prev)}
         >
           <p>Category</p>
           <IoIosArrowDown size={20} />
         </div>
-        {isDropdown && isDesktop && (
+        {isDropdown && (
           <div className="links">
             {categories.map((category) => (
               <Link
@@ -101,7 +112,7 @@ const Navbar = ({ searchTerm, setSearchTerm, loginedUser, sticky }) => {
           </div>
         )}
       </DropdownMenu>
-      <div className="searchbar-box">
+      <SearchBoxContainer>
         <IoMdSearch size={30} className="search-icon" />
         <input
           text="text"
@@ -124,10 +135,14 @@ const Navbar = ({ searchTerm, setSearchTerm, loginedUser, sticky }) => {
             <IoMdCloseCircle size={20} />
           </button>
         )}
-      </div>
+      </SearchBoxContainer>
       <div className="user-container">
         <Link to={`user-profile/${loginedUser?._id}`}>
-          <img src={loginedUser?.image} alt="user" className="user-pic" />
+          <UserIcon
+            iconImage={loginedUser?.image}
+            userName={loginedUser?.userName}
+          />
+          {/* <img src={loginedUser?.image} alt="user" className="user-pic" /> */}
         </Link>
         <Link to="/create-pin" className="add-btn">
           <IoMdAdd size={21} className="add-icon" />

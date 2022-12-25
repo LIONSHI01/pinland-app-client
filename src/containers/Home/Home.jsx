@@ -12,10 +12,10 @@ const Home = () => {
   const [user, setUser] = useState(null);
   const userInfo = fetchUser();
 
-  // useEffect(() => {
-  //   const query = userQuery(userInfo?.googleId);
-  //   client.fetch(query).then(data => setUser(data[0]));
-  // }, []);
+  useEffect(() => {
+    const query = userQuery(userInfo?.googleId);
+    client.fetch(query).then((data) => setUser(data[0]));
+  }, []);
 
   return (
     <HomeContainer>

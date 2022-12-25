@@ -23,7 +23,7 @@ const CommentList = ({
 
   // STATE MANAGEMENT
   const [showComment, setShowComment] = useState(false);
-  // console.log(comment);
+
   return (
     <CommentsListContainer>
       <div className="comment-heading">

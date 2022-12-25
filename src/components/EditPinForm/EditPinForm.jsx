@@ -72,7 +72,7 @@ const EditPinForm = ({ pin, loginedUser, setShowEditForm }) => {
       .catch((err) => console.log(err));
   };
 
-  // console.log(pin);
+  
   return (
     <>
       <ModalContainer>

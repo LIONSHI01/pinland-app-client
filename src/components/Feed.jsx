@@ -4,12 +4,17 @@ import { useParams } from 'react-router-dom';
 import { client } from '../utils/client';
 import { feedQuery, searchQuery } from '../utils/dataQuery';
 import { MasonryLayout, Spinner } from './';
+import { device } from '../devices';
 
 const FeedContainer = styled.div`
   position: relative;
   width: 100vw;
   min-height: calc(100vh - 8rem);
   margin: 0 var(--mg-x);
+
+  @media ${device.mobileL} {
+    margin: 0;
+  }
 `;
 
 const LoadingContainer = styled.div`

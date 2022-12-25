@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button, { BUTTON_TYPES_CLASSES } from '../Button';
 
-import { WarningModal } from '../';
+import { WarningModal, UserIcon } from '../';
 
 import { CreateCommentContainer } from './CreateComment.styles';
 
@@ -21,7 +21,8 @@ const CreateComment = ({
       <CreateCommentContainer>
         <div className="comment-top">
           <Link to={`/user-profile/${loginedUser?._id}`}>
-            <img src={loginedUser?.image} alt="user" className="user-pfp" />
+            {/* <img src={loginedUser?.image} alt="user" className="user-pfp" /> */}
+            <UserIcon iconImage={loginedUser?.image} />
           </Link>
           <textarea
             type="text"

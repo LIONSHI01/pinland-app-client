@@ -1,7 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import Button, { BUTTON_TYPES_CLASSES } from "./Button";
+import Button, { BUTTON_TYPES_CLASSES } from './Button';
+import { UserIcon } from './index';
 
 const InputContainer = styled.div`
   display: flex;
@@ -62,7 +63,7 @@ const CommentInput = ({
   return (
     <InputContainer>
       <div className="top">
-        <img src={loginedUser?.image} alt="user" />
+        <UserIcon iconImage={loginedUser?.image} />
         <input
           placeholder="Reply"
           value={editedComment}

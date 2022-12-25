@@ -70,7 +70,6 @@ const PinDetail = ({ loginedUser }) => {
 
   // HANDLERS
   const fetchDataHandler = () => {
-    // console.log('Fetching Pin Details');
     setLoadingDetail(true);
     let query = pinDetailQuery(pinId);
 

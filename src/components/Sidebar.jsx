@@ -2,26 +2,14 @@ import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { BsArrowBarRight } from 'react-icons/bs';
 import logo from '../assets/logo.png';
 import { categories } from '../utils/dataQuery';
-
-// const categories = [
-//   { name: 'animals' },
-//   { name: 'wallpaper' },
-//   { name: 'photography' },
-//   { name: 'gaming' },
-//   { name: 'cat' },
-//   { name: 'others' },
-// ];
 
 const SidebarContainer = styled.nav`
   background-color: var(--white);
   height: 100vh;
   width: 18rem;
-  /* position: fixed; */
-  /* top: 0;
-  left: 0; */
+
   padding: 2rem 0 2rem;
 
   display: flex;

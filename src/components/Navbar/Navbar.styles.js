@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
+import { device } from '../../devices';
 
 const stickyStyles = css`
   position: fixed;
@@ -13,34 +14,82 @@ export const NavbarContainer = styled.div`
   height: 8rem;
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
   padding: 2rem 2.5rem;
   z-index: 1000;
   background-color: var(--white);
 
   ${(props) => props.sticky && stickyStyles}
 
-  .searchbar-box {
-    width: 100%;
+  .user-container {
     display: flex;
     align-items: center;
-    border: 2px solid var(--black-light-3);
+    gap: 1rem;
+  }
 
-    padding: 0.5rem;
-    background-color: var(--grey-light-1);
+  .user-pic {
+    border-radius: 100px;
+    height: 3.5rem;
+    width: 3.5rem;
+    position: relative;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .add-btn {
+    height: 4rem;
+    width: 4rem;
+
+    background-color: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: var(--br-s);
     transition: all 0.3s;
+
     :hover {
-      border: 2px solid var(--black-light-2);
+      background-color: var(--red-dark);
     }
+    :active {
+      scale: 0.85;
+    }
+  }
+  .add-icon {
+    color: var(--white);
+  }
 
-    :hover .search-icon {
-      color: var(--black-light-2);
-    }
+  .sidebar-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 
-    :has(input:focus) {
-      box-shadow: 0 0 0 0.6rem var(--blue-light-3);
+    @media ${device.mobileL} {
+      display: flex;
     }
+  }
+`;
+
+export const SearchBoxContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--black-light-3);
+
+  padding: 0.5rem;
+  background-color: var(--grey-light-1);
+  border-radius: var(--br-s);
+  transition: all 0.3s;
+  :hover {
+    border: 2px solid var(--black-light-2);
+  }
+
+  :hover .search-icon {
+    color: var(--black-light-2);
+  }
+
+  :has(input:focus) {
+    box-shadow: 0 0 0 0.6rem var(--blue-light-3);
   }
 
   input {
@@ -80,42 +129,6 @@ export const NavbarContainer = styled.div`
     padding-left: 0.5rem;
     transition: inherit;
   }
-
-  .user-container {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .user-pic {
-    border-radius: 100px;
-    height: 3.5rem;
-    width: 3.5rem;
-    position: relative;
-    overflow: hidden;
-    line-height: 0;
-  }
-  .add-btn {
-    height: 4rem;
-    width: 4rem;
-
-    background-color: var(--red);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--br-s);
-    transition: all 0.3s;
-
-    :hover {
-      background-color: var(--red-dark);
-    }
-    :active {
-      scale: 0.85;
-    }
-  }
-  .add-icon {
-    color: var(--white);
-  }
 `;
 
 export const DropdownMenu = styled.div`
@@ -127,12 +140,16 @@ export const DropdownMenu = styled.div`
     display: flex;
     align-items: center;
     gap: 1rem;
+
+    @media ${device.mobileL} {
+      display: none;
+    }
   }
 
   .links {
     width: 25rem;
     height: 90vh;
-    overflow-y: scroll;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -174,8 +191,8 @@ export const DropdownMenu = styled.div`
 
 export const LogoContainer = styled(Link)`
   .test-box {
-    height: 5rem;
-    width: 5rem;
+    height: 4rem;
+    width: 4rem;
     border-radius: 100px;
     background-color: var(--white);
 
@@ -191,5 +208,9 @@ export const LogoContainer = styled(Link)`
   img {
     height: 2.5rem;
     width: 2.5rem;
+  }
+
+  @media ${device.mobileL} {
+    display: none;
   }
 `;

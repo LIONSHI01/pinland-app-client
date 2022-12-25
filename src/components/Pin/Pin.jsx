@@ -9,7 +9,7 @@ import { urlFor, client } from '../../utils/client';
 import { fetchUser } from '../../utils/fetchUser';
 import { toggleSaveRequest, deletePinRequest } from '../../utils/requests';
 import Button from '../Button';
-import { WarningModal } from '..';
+import { WarningModal, UserIcon } from '..';
 
 import {
   PinContainer,
@@ -129,11 +129,7 @@ const Pin = ({
         </ContentContainer>
         {showCreator && (
           <PostedByContainer to={`/user-profile/${postedBy?._id}`}>
-            <img
-              src={postedBy?.image}
-              alt="user-profiel"
-              className="user-image"
-            />
+            <UserIcon iconImage={postedBy?.image} />
             <p>{postedBy?.userName}</p>
           </PostedByContainer>
         )}

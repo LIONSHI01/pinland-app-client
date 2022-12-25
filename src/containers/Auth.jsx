@@ -59,7 +59,7 @@ const Auth = () => {
   }, []);
 
   const responseGoogle = (response) => {
-    localStorage.setItem('user', JSON.stringify(response.profileObj));
+    localStorage.setItem('pinland-user', JSON.stringify(response.profileObj));
     const { name, googleId, imageUrl } = response.profileObj;
 
     const doc = {
@@ -72,6 +72,10 @@ const Auth = () => {
     client.createIfNotExists(doc).then(() => {
       navigate('/', { replace: true });
     });
+  };
+
+  const falseResonpseGoogle = () => {
+    localStorage.clear();
   };
 
   return (
@@ -102,7 +106,7 @@ const Auth = () => {
                 </button>
               )}
               onSuccess={responseGoogle}
-              onFailure={responseGoogle}
+              onFailure={falseResonpseGoogle}
               cookiePolicy="single_host_origin"
             />
           </div>

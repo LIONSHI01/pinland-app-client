@@ -1,34 +1,34 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
-import { GoogleLogout } from "react-google-login";
-import { toast } from "react-toastify";
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+import { GoogleLogout } from 'react-google-login';
+import { toast } from 'react-toastify';
 
-import { IoMdLogOut } from "react-icons/io";
-import { RiAddFill } from "react-icons/ri";
-import { BsDot } from "react-icons/bs";
-import { client } from "../../utils/client";
+import { IoMdLogOut } from 'react-icons/io';
+import { RiAddFill } from 'react-icons/ri';
+import { BsDot } from 'react-icons/bs';
+import { client } from '../../utils/client';
 import {
   addFollowerRequest,
   addFollowingRequest,
   unfollowRequest,
   unfollowingRequest,
-} from "../../utils/requests";
+} from '../../utils/requests';
 import {
   userCreatedPinsQuery,
   userSavedPinsQuery,
   userQuery,
-} from "../../utils/dataQuery";
-import { MasonryLayout, IconButton, UserProfileForm } from "..";
+} from '../../utils/dataQuery';
+import { MasonryLayout, IconButton, UserIcon } from '..';
 import {
   ProfileContainer,
   HeaderSection,
   PortfolioSection,
   PinsContainer,
-} from "./UserProfile.styles";
-import logo from "../../assets/logo.png";
+} from './UserProfile.styles';
+import logo from '../../assets/logo.png';
 
 const randomImage =
-  "https://source.unsplash.com/1600x900/?nature,photography,technology";
+  'https://source.unsplash.com/1600x900/?nature,photography,technology';
 
 const UserProfile = ({ loginedUser }) => {
   // CONFIGURATION
@@ -38,10 +38,9 @@ const UserProfile = ({ loginedUser }) => {
   // STATE MANAGEMENT
   const [user, setUser] = useState(null);
   const [loginUserProfile, setLoginUserProfile] = useState(null);
-  const [activeBtn, setActiveBtn] = useState("created");
-  const [selected, setSelected] = useState("created");
+  const [activeBtn, setActiveBtn] = useState('created');
+  const [selected, setSelected] = useState('created');
   const [pins, setPins] = useState(null);
-  const [showProfileForm, setShowProfileForm] = useState(true);
 
   const isFollowing = !!user?.followers?.filter(
     (item) => item?.userId === loginedUser?._id
@@ -50,7 +49,7 @@ const UserProfile = ({ loginedUser }) => {
   // HANDLERS
   const logout = () => {
     localStorage.clear();
-    navigate("/auth");
+    navigate('/auth');
   };
 
   const followHandler = (user) => {
@@ -84,7 +83,7 @@ const UserProfile = ({ loginedUser }) => {
   }, [userId, loginedUser]);
 
   useEffect(() => {
-    if (activeBtn === "created") {
+    if (activeBtn === 'created') {
       const createdPinsQuery = userCreatedPinsQuery(userId);
       client.fetch(createdPinsQuery).then((data) => setPins(data));
     } else {
@@ -100,7 +99,10 @@ const UserProfile = ({ loginedUser }) => {
         <Link to="/" className="logo-btn">
           <img src={logo} alt="logo" className="logo-image" />
         </Link>
-        <img src={user?.image} alt="user" className="user-pfp" />
+        {/* <img src={user?.image} alt="user" className="user-pfp" /> */}
+        <div className="user-pfp">
+          <UserIcon iconImage={user?.image} size="l" />
+        </div>
         {userId === loginedUser?._id && (
           <GoogleLogout
             clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
@@ -132,31 +134,31 @@ const UserProfile = ({ loginedUser }) => {
           <div className="button-group">
             <button
               onClick={() => {
-                setSelected("created");
-                setActiveBtn("created");
+                setSelected('created');
+                setActiveBtn('created');
               }}
               type="button"
               className={`${
-                activeBtn === "created" ? "switch-btn active" : "switch-btn"
+                activeBtn === 'created' ? 'switch-btn active' : 'switch-btn'
               }`}
             >
               Created
             </button>
             <button
               onClick={() => {
-                setSelected("saved");
-                setActiveBtn("saved");
+                setSelected('saved');
+                setActiveBtn('saved');
               }}
               type="button"
               className={`${
-                activeBtn === "saved" ? "switch-btn active" : "switch-btn"
+                activeBtn === 'saved' ? 'switch-btn active' : 'switch-btn'
               }`}
             >
               Saved
             </button>
             {loginedUser?._id === user?._id && (
               <IconButton
-                onClick={() => navigate("/create-pin")}
+                onClick={() => navigate('/create-pin')}
                 type="button"
                 className="add-btn"
               >
@@ -167,9 +169,9 @@ const UserProfile = ({ loginedUser }) => {
               <button
                 onClick={() => followHandler(user)}
                 type="button"
-                className={isFollowing ? "follow-btn following" : "follow-btn"}
+                className={isFollowing ? 'follow-btn following' : 'follow-btn'}
               >
-                {isFollowing ? "Following" : "Follow"}
+                {isFollowing ? 'Following' : 'Follow'}
               </button>
             )}
           </div>

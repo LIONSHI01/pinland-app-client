@@ -50,7 +50,6 @@ const CreatePin = ({ loginedUser }) => {
     ) {
       setLoading(true);
 
-      // console.log(e.target.files[0]);
       client.assets
         .upload('image', e.target.files[0], {
           contentType: type,
@@ -62,7 +61,6 @@ const CreatePin = ({ loginedUser }) => {
         })
         .catch((error) => {
           toast.error('Image upload failed, please try again later.');
-          console.log('Image upload error', error);
         });
     } else {
       toast.error('Wrong image type!');

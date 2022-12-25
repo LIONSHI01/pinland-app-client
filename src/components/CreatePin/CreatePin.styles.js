@@ -24,6 +24,8 @@ export const MainContainer = styled.div`
   @media ${device.tablet} {
     flex-direction: column;
     gap: 3rem;
+    padding: 1rem;
+    margin: 1rem;
   }
 `;
 
@@ -45,8 +47,6 @@ export const UploadContainer = styled.div`
     border: 2px dotted var(--black-light-3);
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    /* align-items: center; */
     padding: 1rem;
     cursor: pointer;
   }

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
+import { UserIcon } from './index';
 
 import { client } from '../utils/client';
 
@@ -81,7 +82,8 @@ const CreatorItem = ({
   return (
     <ItemContainer>
       <Link to={`/user-profile/${creator?._id}`}>
-        <img src={creator?.image} alt="creator" />
+        {/* <img src={creator?.image} alt="creator" /> */}
+        <UserIcon iconImage={creator?.image} />
       </Link>
       <div className="details">
         <div className="info">

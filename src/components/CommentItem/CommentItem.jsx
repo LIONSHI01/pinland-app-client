@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AiFillHeart } from 'react-icons/ai';
-import { BsThreeDots, BsFillReplyFill } from 'react-icons/bs';
+import { BsThreeDots } from 'react-icons/bs';
 import { toast } from 'react-toastify';
 
-import { IconButton, CommentInput, ReplyInput } from '../index';
+import { IconButton, CommentInput, ReplyInput, UserIcon } from '../index';
 import { timeDiff } from '../../utils/timeCalculator';
 import {
   deleteCommentRequest,
@@ -78,11 +78,13 @@ const CommentItem = ({ pin, comment, loginedUser, isReply }) => {
         <CommentItemContainer isReply={isReply} key={comment?._key}>
           <div className="comment-details">
             <Link to={`/user-profile/${comment?.postedBy?._id}`}>
-              <img
+              {/* <img
                 src={comment?.postedBy?.image}
                 alt="postedby-pfp"
                 className="comment-postedby-pfp"
-              />
+              /> */}
+
+              <UserIcon iconImage={comment?.postedBy?.image} />
             </Link>
             <div className="postedby-details">
               <div className="details-top">

@@ -4,6 +4,10 @@ const smallSize = css`
   height: 2.5rem;
   width: 2.5rem;
 `;
+const middleSize = css`
+  height: 4rem;
+  width: 4rem;
+`;
 
 export const ButtonContainer = styled.button`
   border: none;
@@ -19,6 +23,7 @@ export const ButtonContainer = styled.button`
   transition: all 0.3s;
 
   ${(props) => props.size === 'small' && smallSize}
+  ${(props) => props.size === 'middle' && middleSize}
 
   :active {
     scale: 0.85;

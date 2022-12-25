@@ -6,6 +6,7 @@ import { client } from '../utils/client';
 import Button, { BUTTON_TYPES_CLASSES } from './Button';
 
 import { replyCommentRequest } from '../utils/requests';
+import { UserIcon } from './index';
 
 const InputContainer = styled.div`
   display: flex;
@@ -59,7 +60,6 @@ const InputContainer = styled.div`
 const ReplyInput = ({ pin, comment, loginedUser, setShowReplyInput }) => {
   const [reply, setReply] = useState('');
   const [replying, setReplying] = useState(false);
-  // console.log(reply);
 
   // HANDLER
   const replyCommentHandler = (replyText) => {
@@ -76,7 +76,8 @@ const ReplyInput = ({ pin, comment, loginedUser, setShowReplyInput }) => {
   return (
     <InputContainer>
       <div className="top">
-        <img src={loginedUser?.image} alt="user" />
+        {/* <img src={loginedUser?.image} alt="user" /> */}
+        <UserIcon iconImage={loginedUser?.image} />
         <input
           placeholder="Reply"
           value={reply}
