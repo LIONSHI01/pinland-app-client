@@ -57,7 +57,7 @@ const Auth = () => {
     };
     gapi.load('client:auth2', initClient);
   }, []);
-  console.log('first');
+
   const responseGoogle = (response) => {
     localStorage.setItem('user', JSON.stringify(response.profileObj));
     const { name, googleId, imageUrl } = response.profileObj;
