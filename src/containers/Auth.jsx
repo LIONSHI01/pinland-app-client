@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
-import GoogleLogin from "react-google-login";
-import { gapi } from "gapi-script";
-import { FcGoogle } from "react-icons/fc";
-import { client } from "../utils/client";
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
+import GoogleLogin from 'react-google-login';
+import { gapi } from 'gapi-script';
+import { FcGoogle } from 'react-icons/fc';
+import { client } from '../utils/client';
 
-import loginVideo from "../assets/share.mp4";
-import { useNavigate } from "react-router-dom";
+import loginVideo from '../assets/share.mp4';
+import { useNavigate } from 'react-router-dom';
 
 const AuthContainer = styled.main`
   width: 100vw;
@@ -52,25 +52,25 @@ const Auth = () => {
     const initClient = () => {
       gapi.client.init({
         clientId: clientId,
-        scope: "",
+        scope: '',
       });
     };
-    gapi.load("client:auth2", initClient);
+    gapi.load('client:auth2', initClient);
   }, []);
-
+  console.log('first');
   const responseGoogle = (response) => {
-    localStorage.setItem("user", JSON.stringify(response.profileObj));
+    localStorage.setItem('user', JSON.stringify(response.profileObj));
     const { name, googleId, imageUrl } = response.profileObj;
 
     const doc = {
       _id: googleId,
-      _type: "user",
+      _type: 'user',
       userName: name,
       image: imageUrl,
     };
 
     client.createIfNotExists(doc).then(() => {
-      navigate("/", { replace: true });
+      navigate('/', { replace: true });
     });
   };
 
