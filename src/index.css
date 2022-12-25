@@ -1,13 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+html,
 body {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  line-height: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  font-size: 62.5%;
+  width: 100%;
+  height: 100%;
+  /* overflow-x: hidden; */
+
+  @media only screen and (max-width: 160em) {
+    font-size: 80%;
+  }
+
+  @media only screen and (max-width: 90em) {
+    font-size: 50%;
+  }
+
+  @media only screen and (max-width: 64em) {
+    font-size: 62.5%;
+  }
+
+  @media only screen and (max-width: 48em) {
+    font-size: 50%;
+  }
+
+  @media only screen and (max-width: 26.56em) {
+    font-size: 45%;
+  }
+
+  @media only screen and (max-width: 23.44em) {
+    font-size: 35%;
+  }
+
+  @media only screen and (max-width: 20em) {
+    font-size: 32.5%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.2;
+  width: 100%;
+  /* overflow-x: hidden; */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+figure {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  /* COLOR*/
+  --bg: #2c2c2c;
+  --bg-light: #ececec;
+
+  /* for Font color --black */
+  --black-dark: #1e222a;
+  --black: #252a34;
+  --black-light: #51555d;
+  --black-light-2: #666a71;
+  --black-light-3: #d3d4d6;
+
+  --grey-light-1: #eaeaea;
+  --grey-light-2: #eeeeee;
+  --grey-light-3: #f7f7f7;
+  /* 
+  --grey-dark-1: #5c5c5c;
+  --grey-dark-2: #474747;
+  --grey-dark-3: #333; */
+
+  --white: #fff;
+
+  --red: #e23e57;
+  --red-light: #e86579;
+  --red-light-2: #ee8b9a;
+  --red-dark: #b53246;
+
+  --blue-light-3: #c2ced8;
+
+  /* FONT */
+  --ff-display: 'Crimson Text', serif;
+
+  --fs-ss: 1.2rem;
+  --fs-s: 1.6rem;
+  --fs: 1.8rem;
+  --fs-x: 2rem;
+  --fs-xl: 2.4rem;
+  --fs-xxl: 3.5rem;
+  --fs-xxxl: 4.5rem;
+  --fs-mega: 7.2rem;
+
+  /* MARGIN */
+  --mg-xs: 0.5rem;
+  --mg-s: 1rem;
+  --mg-m: 2.5rem;
+  --mg-x: 5rem;
+  --mg-xl: 8rem;
+  --mg-xxl: 9rem;
+
+  /* PADDING */
+
+  --pd-xs: 0.5rem;
+  --pd-s: 0.8rem;
+  --pd: 1rem;
+  --pd-m: 1.5rem;
+  --pd-x: 2rem;
+  --pd-xl: 3rem;
+
+  /* BOX SHADOW */
+  --bs-s: 0 0.5rem 2rem rgba(0, 0, 0, 0.1);
+  --bs-m: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+
+  /* BORDER RADIUS */
+
+  --br-s: 12px;
+  --br-m: 16px;
+  --br-x: 24px;
+
+  /* SPACE */
+  --container: 144rem;
+  --container-x: 188rem;
+
+  --toastify-toast-width: 380px !important;
+}
+
+h1 {
+  display: block;
+
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+h4 {
+  display: block;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+p {
+  display: block;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+/* 
+.Toastify__toast--warning {
+
+}
+.Toastify__toast--error {
+
+} */
+.toastBody {
+  font-family: 'Open Sans', serif;
+  color: #10171d;
+  font-size: 1.8rem !important;
+}
+.toastProgress {
+  background: #333f48 !important;
+}
+
+.spinner-style {
+  margin: 5rem;
+}
+
+.masonry-layout-styles {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
 }
