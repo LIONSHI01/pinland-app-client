@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Feed, PinDetail, Navbar, CreatePin, Search } from '../../components';
+import {
+  Feed,
+  PinDetail,
+  Navbar,
+  CreatePin,
+  Search,
+  AuthorDisplayBlock,
+} from '../../components';
 
 import { PinsContainer } from './Pins.styles';
 
@@ -50,6 +57,7 @@ const Pins = ({ loginedUser }) => {
           />
         </Routes>
       </div>
+      <AuthorDisplayBlock />
     </PinsContainer>
   );
 };

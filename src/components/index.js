@@ -26,3 +26,4 @@ export { default as EditPinForm } from './EditPinForm/EditPinForm';
 export { default as CommentList } from './CommentList/CommentList';
 export { default as WarningModal } from './WarningModal';
 export { default as UserIcon } from './UserIcon/UserIcon';
+export { default as AuthorDisplayBlock } from './AuthorDisplayBlock/AuthorDisplayBlock';

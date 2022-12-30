@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { client } from '../../utils/client';
-import { UserProfile } from '../../components';
+import { UserProfile, AuthorDisplayBlock } from '../../components';
 import Pins from '../Pins/Pins';
 import { HomeContainer, PinContainer } from './Home.styles';
 import { fetchUser } from '../../utils/fetchUser';
