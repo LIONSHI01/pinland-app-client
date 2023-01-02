@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { client } from '../../utils/client';
-import { UserProfile, AuthorDisplayBlock } from '../../components';
+import { UserProfile } from '../../components';
 import Pins from '../Pins/Pins';
 import { HomeContainer, PinContainer } from './Home.styles';
 import { fetchUser } from '../../utils/fetchUser';
@@ -15,7 +15,7 @@ const Home = () => {
   useEffect(() => {
     const query = userQuery(userInfo?.googleId);
     client.fetch(query).then((data) => setUser(data[0]));
-  }, []);
+  }, [userInfo]);
 
   return (
     <HomeContainer>
